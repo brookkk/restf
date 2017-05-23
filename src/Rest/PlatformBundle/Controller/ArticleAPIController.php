@@ -65,8 +65,9 @@ class ArticleAPIController extends Controller
 
   /**
      * @Rest\Get("/articles", name="article_list")
+     * @Rest\View()
      */
-    public function listAction()
+    public function articleListAction()
     {
         $articles = $this->getDoctrine()->getRepository('RestPlatformBundle:Article')->findAll();
         
