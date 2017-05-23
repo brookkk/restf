@@ -1,3 +1,7 @@
 rest_platform_homepage:
     path:     /
     defaults: { _controller: RestPlatformBundle:Default:index }
+articles_api:
+    resource: "@RestPlatformBundle/Controller/ArticleAPIController.php"
+    prefix:   /
+    type:     annotation
