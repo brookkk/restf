@@ -3,6 +3,7 @@
 namespace Rest\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Author
@@ -34,6 +35,14 @@ class Author
      * @ORM\Column(name="biography", type="string", length=255)
      */
     private $biography;
+
+
+
+
+/**
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="author", cascade={"persist"})
+     */
+    private $articles;
 
 
     /**
@@ -92,6 +101,18 @@ class Author
     public function getBiography()
     {
         return $this->biography;
+    }
+
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+
+      public function getArticles()
+    {
+        return $this->articles;
     }
 }
 
